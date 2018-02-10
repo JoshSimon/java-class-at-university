@@ -32,52 +32,72 @@
  *  for its legitimate purpose"
  */
 
-public class access_to_varibles_from_class {
+public class access_modifiers {
 
     private int privateInteger; // can be only used within the class
     public String publicString;
 
     // overloaded constructors, both arguments are optional (also in argument sequence)
 
-    public  access_to_varibles_from_class(String str){
+    public access_modifiers(String str){
         this.publicString = str;
         this.privateInteger = 0;
     }
 
-    public access_to_varibles_from_class(int number){
+    public access_modifiers(int number){
         this.privateInteger = number;
         this.publicString = "zero";
     }
 
-    public access_to_varibles_from_class(int number, String str){
+    public access_modifiers(int number, String str){
         this.privateInteger = number;
         this.publicString = str;
     }
 
-    public access_to_varibles_from_class(String str, int number){
+    public access_modifiers(String str, int number){
         this.privateInteger = number;
         this.publicString = str;
     }
 
-    public access_to_varibles_from_class(){
+    public access_modifiers(){
         this.privateInteger = 0;
         this.publicString = "zero";
     }
 
 
     public static final void printPublicString(){
-        access_to_varibles_from_class a = new access_to_varibles_from_class();
+        access_modifiers a = new access_modifiers();
         System.out.println("If no string argument provided the publicString is instantiated with "+ a.publicString);
-        access_to_varibles_from_class b = new access_to_varibles_from_class("customString");
+        access_modifiers b = new access_modifiers("customString");
         System.out.println("If there is an argument, the publicString is assigned its value " + b.publicString);
 
     }
 
-    int defaultInteger;
+    public final void printPrivateInteger(){
+        System.out.println(this.privateInteger); // this ! --> cannot be static, can be printed
+        // but not accessed from outside of the class
+    }
 
-    
+    int defaultInteger=3; // primitive data types are IMMUTABLE!
+    // if you access a primitive data type of another instanciated object
+    // you actually deal with a copy
 
-    protected int protectedInteger
+    static_variables_methods a = new static_variables_methods(3);
+
+    public static_variables_methods getSomeInstantiatedObject(){
+        static_variables_methods aa =  a;
+        return aa;
+        // return a;  bad practice! --> the actual reference to the object a is handed over
+        // possible consequence, the once DEFAULT object a of class access_modifiers can
+        // be modified outside of the package, because the getter method is public
+
+    }
+
+    protected static final Integer protectedInteger = 42; // mutable object!
+
+    protected static final void someLoggin(){
+        System.out.println("Only my children will read this");
+    }
 
 
 }
