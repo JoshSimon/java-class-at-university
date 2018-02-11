@@ -1,0 +1,9 @@
+<!DOCTYPE note[
+        <!ELEMENT letter (to,from,heading,body)>
+        <!ELEMENT to (#PCDATA)>
+        <!ELEMENT from (#PCDATA)>
+        <!ELEMENT heading (#PCDATA)>
+        <!ELEMENT salutation (#PCDATA)>
+        <!ELEMENT body (#PCDATA)>
+        <!ENTITY author "Author: Josh">
+        ]>

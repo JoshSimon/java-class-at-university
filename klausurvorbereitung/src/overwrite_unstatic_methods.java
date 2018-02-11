@@ -14,7 +14,7 @@ public class overwrite_unstatic_methods extends nonstatic_methods {
 //        System.out.println("That's your dynamic integer added " + integer);
 //    };
 
-    @Override public void printInteger(){
+     public void printInteger(){
         System.out.println("That's your dynamic integer but overridden "+ super.integer);
     };
 

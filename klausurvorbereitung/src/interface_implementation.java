@@ -19,25 +19,35 @@ public class interface_implementation implements interfaces.advancedInterface, i
     }
         // actual implementation by override
         // style guide: always indicate if you are implementing an
-        // existing method signature, therefor if the method is removed from
+        // existing method signature with '@Override', therefor if the method is removed from
         // the interface you may notice it due to a compile error
         // or if there is a static implementation in the interface and you
         // actually override it
-        @Override
+
+        // in this particular case, it is implementing an already implemented static
+        // method from the interface, '@Override' which by definition'static' cannot be overridden
+        // this is pretty dangerous, because you might think the method getCurrentTime comes from
+        // the interface but actually is implemented again within that class and still it
+        // implements the interface
         public static int getCurrentTime(){
         // return this.getTheTime() ! not possible, because you would access the method by a class instance
            return interface_implementation.getTheTime();
         }
 
         // actual implementation
+        @Override
         public void howMuchTimeDidPass(int timestamp){
-            this.getTheTime(); // method of a class instance!
             if(timestamp > 2459){
-
+                interfaces.someOtherInterfaceForReal.log("The provided timestamp is invalid");
+            } else {
+                int now = this.getTheTime(); // method of a class instance!
+                int difference = now - timestamp;
+                interfaces.someOtherInterfaceForReal.log("Difference " + difference);
             }
         }
 
         // actual implementation, this time it relies on an instance of the class
+        @Override
         public double otherMethodNobodyCaresAbout(String one, double two){
         System.out.println("Provided " +one);
         return this.doub + two + interface_implementation.MASS_OF_ELECTRON; // accessing a static value from the interface

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note SYSTEM "custom_document_type_definition.dtd">
+<letter>
+
+        <to>Marcel and Andi</to>
+        <from>Josh</from>
+        <heading>Reminder</heading>
+        <body>Don't forget the exam tomorrow!</body>
+        <salutation>Goodbye!</salutation>
+        <background color="blue"></background> <!-- so called empty element, because it only contains attributes -->
+</letter>
