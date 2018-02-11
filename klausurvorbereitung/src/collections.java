@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class arrayList {
+public class collections {
 
     private ArrayList<String> list;
 
-    arrayList(String a, String b){
+    collections(String a, String b){
         this.list =  new ArrayList<>();
         this.list.add(a);
         this.list.add(b);
